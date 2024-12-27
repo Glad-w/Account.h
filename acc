@@ -1,0 +1,23 @@
+#ifndef ACCOUNT_H
+#define ACCOUNT_H
+
+#include <string>
+#include <iostream>
+#include <fstream>
+
+class Account {
+protected:
+    std::string name, identityNumber, email, phoneNumber, kraPin;
+    double balance;
+
+public:
+    Account(std::string name, std::string id, std::string email, std::string phone, std::string kraPin);
+    virtual ~Account();
+
+    virtual void deposit(double amount) = 0;
+    virtual void withdraw(double amount) = 0;
+    virtual void checkBalance() const;
+    virtual void saveToFile(std::ofstream& outFile) const;
+};
+
+#endif
